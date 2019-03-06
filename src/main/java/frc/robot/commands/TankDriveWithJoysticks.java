@@ -7,6 +7,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
@@ -24,6 +25,7 @@ public class TankDriveWithJoysticks extends Command {
   @Override
   protected void execute() {
     Robot.drivetrain.drive(Robot.m_oi.control);
+    Timer.delay(0.005);
   }
 
   // Make this return true when this Command no longer needs to run execute()
