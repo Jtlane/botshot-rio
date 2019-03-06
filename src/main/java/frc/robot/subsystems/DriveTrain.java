@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
+import frc.robot.commands.TankDriveWithJoysticks;
 
 /**
  * Add your docs here.
@@ -30,11 +31,14 @@ public class DriveTrain extends Subsystem {
 
   @Override
   public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new TankDriveWithJoysticks());
   }
 
   public void drive(Joystick joy) {
     drivetrain.tankDrive(joy.getX(), joy.getY());
+  }
+
+  public void stopDrive() {
+    drivetrain.stopMotor();
   }
 }
