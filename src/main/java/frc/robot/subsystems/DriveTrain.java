@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
@@ -34,8 +35,8 @@ public class DriveTrain extends Subsystem {
     setDefaultCommand(new TankDriveWithJoysticks());
   }
 
-  public void drive(Joystick joy) {
-    drivetrain.tankDrive(joy.getX(), joy.getY());
+  public void drive(XboxController controller) {
+    drivetrain.tankDrive(controller.getRawAxis(1), controller.getRawAxis(3));
   }
 
   public void stopDrive() {
